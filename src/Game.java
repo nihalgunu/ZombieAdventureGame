@@ -30,6 +30,7 @@ public class Game {
 
     //Player information
     Player user = new Player();
+    Enemies enemy = new Enemies();
     BasicMonster basicMonster = new BasicMonster();
     EliteMonster eliteMonster = new EliteMonster();
     BossMonster bossMonster = new BossMonster();
@@ -37,7 +38,6 @@ public class Game {
     JLabel hpLabel, hpLabelNumber, atkLabel, atkLabelNumber, speedLabel, speedLabelNumber;
     int playerHP, playerATK, playerSP; //create int variables
 
-    int floor;
     int room;
 
     //For Main Test
@@ -278,12 +278,12 @@ public class Game {
     }
 
     public void city() throws InterruptedException {
-        floor = 0;
+        enemy.setFloor(0);
         room = 0;
-        while(floor < gameBoard.length){
-            while (room <gameBoard[room].length){
+        while(enemy.getFloor() < gameBoard.length - 1){
+            while (room <gameBoard[room].length - 1){
                 waitForUser();
-                position = getPosition(gameBoard[floor][room]);
+                position = getPosition(gameBoard[enemy.getFloor()][room]);
                 if(position == "supplyDrop"){
                     supplyDrop();
                 }
@@ -303,8 +303,8 @@ public class Game {
                 waitForUser();
                 room++;
                 if(skip){
-                    if(getPosition(gameBoard[floor][room+1]) == "bossMonster"){
-                        mainTextArea.setText("Can not skip.\n Boss monster ahead.");
+                    if(getPosition(gameBoard[enemy.getFloor()][room+1]) == "bossMonster"){
+                        mainTextArea.setText("Can not skip.\nBoss monster ahead.");
                         skip = false;
                     }else{
                         room++;
@@ -320,7 +320,7 @@ public class Game {
         user.setHp(user.getHp()+15);
         mainTextArea.setText("Now onto the next floor!");
         waitForUser();
-        floor++;
+        enemy.setFloor(enemy.getFloor() + 1);
     }
 
 
@@ -359,15 +359,15 @@ public class Game {
         int supply = randomEvent();
         if(supply ==0 ){
             mainTextArea.setText("You got a piece of armor");
-            user.setHp(user.getHp() + (int)(Math.random()*15*floor));
+            user.setHp(user.getHp() + (int)(Math.random()*15*enemy.getFloor()*enemy.getFloor()));
         }
         if(supply == 0 ){
             mainTextArea.setText("You got a new weapon");
-            user.setAtk(user.getAtk() + (int)(Math.random()*5*floor));
+            user.setAtk(user.getAtk() + (int)(Math.random()*5*enemy.getFloor()*enemy.getFloor()));
         }
         if(supply == 0 ){
             mainTextArea.setText("You got a pair of boots");
-            user.setSp(user.getSp() + (int)(Math.random()*5*floor));
+            user.setSp(user.getSp() + (int)(Math.random()*5*enemy.getFloor()*enemy.getFloor()));
         }
     }
 

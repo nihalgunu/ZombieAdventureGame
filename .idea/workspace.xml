@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60352b4d-7bb4-4a10-8eb7-5e5945a0ef88" name="Changes" comment="Completed Template">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="60352b4d-7bb4-4a10-8eb7-5e5945a0ef88" name="Changes" comment="Updated Completed Template">
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685074943186</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Updated Completed Template">
+      <created>1685075834189</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1685075834189</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,7 +157,8 @@
     <MESSAGE value="Basic framework for text based game nearly completed.&#10;&#10;TODO: &#10;Create map" />
     <MESSAGE value="Same Commit as previously except with no OLDGAME file&#10;&#10;Basic framework for text based game nearly completed.&#10;&#10;TODO: &#10;Create map" />
     <MESSAGE value="Completed Template" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed Template" />
+    <MESSAGE value="Updated Completed Template" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Completed Template" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

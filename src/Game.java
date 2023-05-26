@@ -37,14 +37,17 @@ public class Game {
                 }
                 if (position.equals("basicMonster")) {
                     basicMonster.update(floor);
+                    System.out.println("An intense fight ensues.");
                     combat(basicMonster);
                 }
                 if (position.equals("eliteMonster")) {
                     eliteMonster.update(floor);
+                    System.out.println("An intense fight ensues.");
                     combat(eliteMonster);
                 }
                 if (position.equals("bossMonster")) {
                     bossMonster.update(floor);
+                    System.out.println("An intense fight ensues.");
                     combat(bossMonster);
                 }
                 if (position.equals("survived")) {
@@ -101,7 +104,6 @@ public class Game {
         return "null";
     }
     public void combat(Enemies enemy){
-        System.out.println("An intense fight ensues.");
         System.out.println("Your Stats:\nHP:" + user.getHp()
                 + "\nATK:" + user.getAtk()
                 + "\nSP:" + user.getSp());

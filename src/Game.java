@@ -128,18 +128,18 @@ public class Game {
         int supply = randomEvent();
         if(supply == 0 ){
             System.out.println("You got a piece of armor");
-            user.setHp(user.getHp() + (int)(Math.random()*15*floor*floor));
+            user.setHp(user.getHp() + (int)(Math.random()*15*floor*floor + 1));
             System.out.println("Your new hp is: " + user.getHp());
         }
         if(supply == 1 ){
             System.out.println("You got a new weapon");
-            user.setAtk(user.getAtk() + (int)(Math.random()*5*floor*floor));
+            user.setAtk(user.getAtk() + (int)(Math.random()*5*floor*floor + 1));
             System.out.println("Your new atk is: " + user.getAtk());
 
         }
         if(supply == 2 ){
             System.out.println("You got a pair of boots");
-            user.setSp(user.getSp() + (int)(Math.random()*5*floor*floor));
+            user.setSp(user.getSp() + (int)(Math.random()*5*floor*floor + 1));
             System.out.println("Your new sp is: " + user.getAtk());
 
         }

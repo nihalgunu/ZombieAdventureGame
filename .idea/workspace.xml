@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="60352b4d-7bb4-4a10-8eb7-5e5945a0ef88" name="Changes" comment="Same Commit as previously except with no OLDGAME file&#10;&#10;Basic framework for text based game nearly completed.&#10;&#10;TODO: &#10;Create map">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684878155311</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Same Commit as previously except with no OLDGAME file&#10;&#10;Basic framework for text based game nearly completed.&#10;&#10;TODO: &#10;Create map">
+      <created>1684878207994</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684878207995</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

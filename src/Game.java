@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
@@ -55,7 +54,7 @@ public class Game {
                 Scanner input = new Scanner(System.in);
                 int moveOn = 0;
                 while (moveOn != 1) {
-                    System.out.println("Your hp is:" + user.getHp());
+                    System.out.println("Your hp is: " + user.getHp());
                     System.out.println("What do you want to do? (forward, heal)");
                     String choice = input.next();
                     if (choice.equals("forward")) {
@@ -135,13 +134,13 @@ public class Game {
         if(supply == 1 ){
             System.out.println("You got a new weapon");
             user.setAtk(user.getAtk() + (int)(Math.random()*5*floor*floor));
-            System.out.println("Your new hp is: " + user.getAtk());
+            System.out.println("Your new atk is: " + user.getAtk());
 
         }
         if(supply == 2 ){
             System.out.println("You got a pair of boots");
             user.setSp(user.getSp() + (int)(Math.random()*5*floor*floor));
-            System.out.println("Your new hp is: " + user.getAtk());
+            System.out.println("Your new sp is: " + user.getAtk());
 
         }
     }

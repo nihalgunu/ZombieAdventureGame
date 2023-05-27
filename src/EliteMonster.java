@@ -4,10 +4,10 @@ public class EliteMonster extends Enemies{
         this.setAtk((int)(Math.random()*5));
         this.setSp((int)(Math.random()*5));
     }
-    public void update(int floor){
-        this.setHp((int)(Math.random()*15*floor*floor + 1));
-        this.setAtk((int)(Math.random()*5*floor*floor + 1));
-        this.setSp((int)(Math.random()*5*floor*floor + 1));
+    public void update(int level){
+        this.setHp((int)(Math.random()*15*level*level + 1));
+        this.setAtk((int)(Math.random()*5*level*level + 1));
+        this.setSp((int)(Math.random()*5*level*level + 1));
     }
 
 }

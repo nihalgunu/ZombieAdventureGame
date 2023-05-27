@@ -6,83 +6,158 @@ public class Game {
     EliteMonster eliteMonster = new EliteMonster();
     BossMonster bossMonster = new BossMonster();
     String position; //for location
-    int floor, room;
+    int floor, room, level;
     int[][] gameBoard;
+    String[][] displayBoard;
 
     // Use hashmap to store weapons and if weapon equipped add the atk stats buff from that     ArrayHashmap
     public static void main(String[] args) {
         new Game();
     }
     public Game(){
-        gameBoard = new int[][]{
-                {randomEvent(), randomEvent(), randomEvent(), randomEvent(), randomEvent(), 3},
-                {randomEvent(), randomEvent(), randomEvent(), randomEvent(), randomEvent(), 3},
-                {randomEvent(), randomEvent(), randomEvent(), 3, randomEvent(), 3},
-                {randomEvent(), randomEvent(), 3, randomEvent(), randomEvent(), 3},
-                {randomEvent(), 3, randomEvent(), 3, randomEvent(), 3},
-                {3, randomEvent(), 3, randomEvent(), 3, 4}
-        };
-        floor = 0;
-        room = 0;
         System.out.println("Welcome to City of Chaos");
-        System.out.println("The goddess blesses you with 5 healing potions each healing you by 15*floor hp.\n" +
-                "Make sure to save the potions for when you need them the most.");
-
+        System.out.println("You are the chosen one, " +
+                "the goddess gifts you 5 healing potions that will get stronger each level you progress.");
+        System.out.println("Within the City you will have to pass through an endless " +
+                "number of floors that will constantly grow in size" +
+                "best of luck young adventurer.");
         int heals = 5;
-        while(floor < gameBoard.length - 1) {
-            while (room < gameBoard[room].length - 1) {
-                position = getPosition(gameBoard[floor][room]);
-                if (position.equals("supplyDrop")) {
-                    supply();
-                }
-                if (position.equals("basicMonster")) {
-                    basicMonster.update(floor);
-                    System.out.println("An intense fight ensues.");
-                    combat(basicMonster);
-                }
-                if (position.equals("eliteMonster")) {
-                    eliteMonster.update(floor);
-                    System.out.println("An intense fight ensues.");
-                    combat(eliteMonster);
-                }
-                if (position.equals("bossMonster")) {
-                    bossMonster.update(floor);
-                    System.out.println("An intense fight ensues.");
-                    combat(bossMonster);
-                }
-                if (position.equals("survived")) {
-                    System.out.println("Victory");
-                    System.exit(0);
-                }
+
+        Scanner levelAsk = new Scanner(System.in);
+        System.out.println("How many levels would you like to play with: ");
+        int levelSelect = levelAsk.nextInt();
+
+        level = 1;
+        while (level <= levelSelect){
+            updateDisplayBoard(level);
+            updateGameBoard(level);
+            floor = 0;
+            room = 0;
+            boolean nextLevel = false;
+            while (!nextLevel){
                 Scanner input = new Scanner(System.in);
-                int moveOn = 0;
-                while (moveOn != 1) {
+                boolean moveOn = false;
+                while (!moveOn) {
+                    displayBoard[floor][room] = "currentFloor";
                     System.out.println("Your hp is: " + user.getHp());
-                    System.out.println("What do you want to do? (forward, heal)");
+                    System.out.println("The map is:");
+                    for (String[] strings : displayBoard) {
+                        for (int j = 0; j < displayBoard[0].length; j++) {
+                            System.out.print(strings[j] + " ");
+                        }
+                        System.out.println();
+                    }
+                    System.out.println("What do you want to do? (up, down, left, right, stay, heal)");
                     String choice = input.next();
-                    if (choice.equals("forward")) {
-                        room++;
-                        moveOn = 1;
-                    } else if (choice.equals("heal")) {
-                        heals--;
-                        if (heals < 0) {
-                            System.out.println("Can not heal. You are out of potions.");
-                        } else {
-                            user.setHp(user.getHp() + 15 * floor);
-                            moveOn = 1;
+                    displayBoard[floor][room] = "empty";
+                    switch (choice) {
+                        case "up" -> {
+                            if (floor - 1 < 0) {
+                                System.out.println("Can not move up.");
+                            } else {
+                                floor--;
+                                moveOn = true;
+                            }
+                        }
+                        case "down" -> {
+                            if (floor + 1 >= gameBoard.length) {
+                                System.out.println("Can not move down.");
+                            } else {
+                                floor++;
+                                moveOn = true;
+                            }
+                        }
+                        case "right" -> {
+                            if (room + 1 >= gameBoard[0].length) {
+                                System.out.println("Can not move right.");
+                            } else {
+                                room++;
+                                moveOn = true;
+                            }
+                        }
+                        case "stay" -> moveOn = true;
+                        case "heal" -> {
+                            if (heals - 1 < 0) {
+                                System.out.println("Can not heal. You are out of potions.");
+                            } else {
+                                heals--;
+                                user.setHp(user.getHp() + 15 * level);
+                            }
                         }
                     }
+
+                }
+                position = getPosition(gameBoard[floor][room]);
+                switch (position) {
+                    case "supplyDrop" -> {
+                        displayBoard[floor][room] = "empty";
+                        supply();
+                        gameBoard[floor][room] = 5;
+                    }
+                    case "basicMonster" -> {
+                        basicMonster.update(level);
+                        System.out.println("An intense fight ensues.");
+                        combat(basicMonster);
+                        displayBoard[floor][room] = "empty";
+                        gameBoard[floor][room] = 5;
+                    }
+                    case "eliteMonster" -> {
+                        eliteMonster.update(level);
+                        System.out.println("An intense fight ensues.");
+                        combat(eliteMonster);
+                        displayBoard[floor][room] = "empty";
+                        gameBoard[floor][room] = 5;
+                    }
+                    case "bossMonster" -> {
+                        bossMonster.update(level);
+                        System.out.println("An intense fight ensues.");
+                        combat(bossMonster);
+                        displayBoard[floor][room] = "empty";
+                        gameBoard[floor][room] = 5;
+                    }
+                    case "survived" -> {
+                        System.out.println("You ran into the escape hole");
+                        System.out.println("On the next floor");
+                        level++;
+                        nextLevel = true;
+                    }
+                    case "empty" -> System.out.println("Nothing is present");
                 }
             }
-            room = 0;
-            System.out.println("Healing you!");
-            user.setHp(user.getHp() + 15 * floor);
-            System.out.println("Now onto the next floor! Floor:" + floor);
-            floor++;
         }
+
     }
     public int randomEvent(){
-        return (int)(Math.random()*3);
+        return (int)(Math.random()*4);
+    }
+    public void updateDisplayBoard(int level){
+        int count = level;
+        int multiplier = 1;
+        while (count >= 10){
+            count = count/10;
+            multiplier++;
+        }
+        displayBoard = new String[6*multiplier][6*multiplier];
+        for(int i = 0; i < displayBoard.length; i++){
+            for (int j = 0; j < displayBoard[0].length; j++){
+                displayBoard[i][j] = "unknown";
+            }
+        }
+    }
+    public void updateGameBoard(int level){
+        int count = level;
+        int multiplier = 1;
+        while (count >= 10){
+            count = count/10;
+            multiplier++;
+        }
+        gameBoard = new int[6*multiplier][6*multiplier];
+        for(int i = 0; i < gameBoard.length; i++){
+            for (int j = 0; j < gameBoard[0].length; j++){
+                gameBoard[i][j] = randomEvent();
+            }
+        }
+        gameBoard[(int) (Math.random()*6*multiplier - 1)][(int) (Math.random()*6*multiplier - 1)] = 4;
     }
     public String getPosition(int gameSpot){
         if(gameSpot == 0){
@@ -98,7 +173,10 @@ public class Game {
             return "bossMonster";
         }
         if(gameSpot == 4){
-            return "Escaped";
+            return "survived";
+        }
+        if(gameSpot == 5){
+            return "empty";
         }
         System.out.println("crash");
         return "null";
@@ -144,6 +222,15 @@ public class Game {
             user.setSp(user.getSp() + (int)(Math.random()*5*floor*floor + 1));
             System.out.println("Your new sp is: " + user.getAtk());
 
+        }
+        if(supply == 3){
+            System.out.println("Player upgrade");
+            user.setHp(user.getHp() + (int)(Math.random()*15*floor*floor + 1));
+            user.setAtk(user.getAtk() + (int)(Math.random()*5*floor*floor + 1));
+            user.setSp(user.getSp() + (int)(Math.random()*5*floor*floor + 1));
+            System.out.println("Your new stats are:\nHP:" + user.getHp()
+                    + "\nATK:" + user.getAtk()
+                    + "\nSP:" + user.getSp());
         }
     }
     public void gameOver(){

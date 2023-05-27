@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60352b4d-7bb4-4a10-8eb7-5e5945a0ef88" name="Changes" comment="Updated Completed Template">
+    <list default="true" id="60352b4d-7bb4-4a10-8eb7-5e5945a0ef88" name="Changes" comment="Final Text Based Game Created&#10;&#10;Features:&#10; - unlimited number of levels&#10; - 2d floors&#10; - displays map &amp; tracks current floor&#10; - whole map randomly generated along with enemies and supply drops&#10; - enemies and buffs scale every floor&#10; - map scales every 10 floors&#10; - 3 key stats (atk, sp, hp)&#10; &#10; To be improved:&#10;  - forced to interact with what you encounter on map&#10;  - does not keep track of what is found on the map&#10;  - random features can be a bit too random&#10;  - attacks are automatically done with no nuance&#10;  - no real story">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BasicMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BasicMonster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BossMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BossMonster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EliteMonster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EliteMonster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685075834189</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Updated Completed Template">
+      <created>1685075945614</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1685075945614</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -158,7 +169,8 @@
     <MESSAGE value="Same Commit as previously except with no OLDGAME file&#10;&#10;Basic framework for text based game nearly completed.&#10;&#10;TODO: &#10;Create map" />
     <MESSAGE value="Completed Template" />
     <MESSAGE value="Updated Completed Template" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Completed Template" />
+    <MESSAGE value="Final Text Based Game Created&#10;&#10;Features:&#10; - unlimited number of levels&#10; - 2d floors&#10; - displays map &amp; tracks current floor&#10; - whole map randomly generated along with enemies and supply drops&#10; - enemies and buffs scale every floor&#10; - map scales every 10 floors&#10; - 3 key stats (atk, sp, hp)&#10; &#10; To be improved:&#10;  - forced to interact with what you encounter on map&#10;  - does not keep track of what is found on the map&#10;  - random features can be a bit too random&#10;  - attacks are automatically done with no nuance&#10;  - no real story" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Text Based Game Created&#10;&#10;Features:&#10; - unlimited number of levels&#10; - 2d floors&#10; - displays map &amp; tracks current floor&#10; - whole map randomly generated along with enemies and supply drops&#10; - enemies and buffs scale every floor&#10; - map scales every 10 floors&#10; - 3 key stats (atk, sp, hp)&#10; &#10; To be improved:&#10;  - forced to interact with what you encounter on map&#10;  - does not keep track of what is found on the map&#10;  - random features can be a bit too random&#10;  - attacks are automatically done with no nuance&#10;  - no real story" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
